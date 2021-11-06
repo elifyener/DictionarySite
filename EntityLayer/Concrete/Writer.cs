@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,9 @@ namespace EntityLayer.Concrete
 
         [StringLength(200)]
         public string WriterPassword { get; set; }
+
+        [NotMapped]
+        public string WriterConfirmPassword { get; set; }
 
         [StringLength(50)]
         public string WriterTitle { get; set; }

@@ -12,12 +12,43 @@ namespace BusinessLayer.ValidationRules
     {
         public WriterValidator()
         {
-            RuleFor(x => x.WriterName).NotEmpty().WithMessage("Yazar adı boş bırakılamaz.");
-            RuleFor(x => x.WriterSurname).NotEmpty().WithMessage("Yazar soyadı boş bırakılamaz.");
-            RuleFor(x => x.WriterAbout).NotEmpty().WithMessage("Hakkında kısmı boş bırakılamaz.");
-            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("Unvan kısmı boş bırakılamaz.");
-            RuleFor(x => x.WriterSurname).MinimumLength(2).WithMessage("Lütfen en az 2 karakter girişi yapın.");
-            RuleFor(x => x.WriterSurname).MaximumLength(50).WithMessage("Lütfen 50 karakterden fazla veri girişi yapmayın.");
+            RuleFor(x => x.WriterName)
+                 .NotEmpty()
+                 .WithMessage("Yazar adı boş bırakılamaz.")
+                 .Length(2, 50)
+                 .WithMessage("Lütfen en az 2 en fazla 50 karakter giriniz.");
+
+            RuleFor(x => x.WriterSurname)
+                 .NotEmpty()
+                 .WithMessage("Yazar soyadı boş bırakılamaz.")
+                 .Length(2, 50)
+                 .WithMessage("Lütfen en az 2 en fazla 50 karakter giriniz.");
+
+            RuleFor(x => x.WriterMail)
+                .NotEmpty()
+                .WithMessage("Mail adres boş bırakılamaz.")
+                .EmailAddress()
+                .WithMessage("Geçerli bir mail adresi giriniz.");
+
+            RuleFor(x => x.WriterPassword)
+                .NotEmpty()
+                .WithMessage("Şifre boş bırakılamaz.")
+                .MinimumLength(6)
+                .WithMessage("Şifreniz en az 6 karakter içermeli.")
+                .Matches(@"[A-Z]+")
+                .WithMessage("Şifreniz en az bir büyük harf içermelidir.")
+                .Matches(@"[a-z]+")
+                .WithMessage("Şifreniz en az bir küçük harf içermelidir.")
+                .Matches(@"[0-9]+")
+                .WithMessage("Şifreniz en az bir rakam içermelidir.")
+                .Matches(@"[\!\?\*\.]+")
+                .WithMessage("Şifren (!? *.) karakterlerden birini içermelidir.");
+
+            RuleFor(x => x.WriterConfirmPassword)
+                .NotEmpty()
+                .WithMessage("Lütfen şifreyi tekrar giriniz.")
+                .Equal(x => x.WriterPassword)
+                .WithMessage("Şifreler uyuşmuyor.");
         }
     }
 }
