@@ -7,7 +7,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
+     @*Required meta tags*@ 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
@@ -16,10 +16,10 @@
 
     <link rel="stylesheet" href="~/writer-register/css/owl.carousel.min.css">
 
-    <!-- Bootstrap CSS -->
+     @*Bootstrap CSS*@ 
     <link rel="stylesheet" href="~/writer-register/css/bootstrap.min.css">
 
-    <!-- Style -->
+     @*Style*@ 
     <link rel="stylesheet" href="~/writer-register/css/style.css">
 
     <title>Livingston | Kayıt Ol</title>
@@ -42,28 +42,23 @@
                             @using (Html.BeginForm("Index", "Register", FormMethod.Post))
                             {
                                 <div class="form-group first">
-                                    @*<input type="text" class="form-control" placeholder="Ad" id="name">*@
-                                    @Html.TextBoxFor(x => x.WriterName, new { placeholder = "Ad", @class = "form-control"})
+                                    @Html.TextBoxFor(x => x.WriterName, new { placeholder = "Ad", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group first">
-                                    @*<input type="text" class="form-control" placeholder="Soyad" id="surname">*@
-                                    @Html.TextBoxFor(x => x.WriterSurname, new { placeholder = "Soyad", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.WriterSurname, new { placeholder = "Soyad", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.WriterSurname, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group first">
-                                    @*<input type="text" class="form-control" placeholder="E-Posta" id="username">*@
-                                    @Html.TextBoxFor(x => x.WriterMail, new { placeholder = "E-Posta", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.WriterMail, new { placeholder = "E-Posta", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group last mb-3">
-                                    @*<input type="password" class="form-control" placeholder="Şifre" id="password">*@
-                                    @Html.PasswordFor(x => x.WriterPassword, new { placeholder = "Şifre", @class = "form-control" })
+                                    @Html.PasswordFor(x => x.WriterPassword, new { placeholder = "Şifre", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group last mb-3">
-                                    @*<input type="password" class="form-control" placeholder="Şifre (Tekrar)" id="password">*@
-                                    @Html.PasswordFor(x => x.WriterConfirmPassword, new { placeholder = "Şifre (Tekrar)", @class = "form-control" })
+                                    @Html.PasswordFor(x => x.WriterConfirmPassword, new { placeholder = "Şifre (Tekrar)", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(x => x.WriterConfirmPassword, "", new { @class = "text-danger" })
                                 </div>
 
@@ -86,9 +81,6 @@
 
 
     </div>
-
-
-
     <script src="~/writer-register/js/jquery-3.3.1.min.js"></script>
     <script src="~/writer-register/js/popper.min.js"></script>
     <script src="~/writer-register/js/bootstrap.min.js"></script>

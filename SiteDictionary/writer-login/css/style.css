@@ -150,3 +150,33 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+
+.err {
+    position: absolute;
+    margin-right: 4%;
+    right: 0px;
+    margin-top: 0%;
+    color: #e63946;
+    font-size: 13px;
+}
+
+.rmb {
+    position: absolute;
+    margin-left: 0%;
+    margin-top: -3%;
+    color: #e63946;
+    font-size: 13px;
+}
+
+.typcn {
+    position: absolute;
+    left: 330px;
+    top: 255px;
+    color: #3b476b;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+    .typcn.active {
+        color: #7f60eb;
+    }

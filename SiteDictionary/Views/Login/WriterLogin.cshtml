@@ -1,9 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
-
-
+﻿@model EntityLayer.Concrete.Writer
 @{
     Layout = null;
 }
@@ -26,6 +21,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="~/writer-login/css/style.css">
 
+
     <title>Livingston | Giriş</title>
 </head>
 <body>
@@ -40,15 +36,27 @@
                     <div class="col-md-7">
                         <h3><strong>Merhaba,</strong></h3>
                         <p class="mb-4">Livingston'a giriş yap veya hesap oluştur!</p>
+                        <label>
+                            @if (ViewBag.errPass == true)
+                            {
+
+                            <small class="rmb">E-posta adresiniz ve/veya şifreniz hatalı.</small>
+
+                            }
+                        </label>
                         @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
                         {
+
                             <div class="form-group first">
                                 <label for="username">E-Posta</label>
-                                <input type="text" class="form-control" name="WriterMail" placeholder="info@livingston.com" id="username">
+                                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", placeholder = "info@livingston.com", id = "username" })
+                                @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "err" })
                             </div>
                             <div class="form-group last mb-3">
                                 <label for="password">Şifre</label>
-                                <input type="password" class="form-control" name="WriterPassword" placeholder="********" id="password">
+                                @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control", placeholder = "********", id = "pwd" })
+                                <i id="eye" class="typcn typcn-eye"><span class="iconify" data-icon="typcn:eye"></span></i>
+                                @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "err" })
                             </div>
 
                             <div class="d-flex mb-5 align-items-center">
@@ -59,7 +67,8 @@
                         }
                         <hr />
                         <center>
-                            <p ><a class="register" href="/Register/Index/">Hesabın yok mu? Kaydol</a></p>
+                            <p><a class="register" href="/Register/Index/">Hesabın yok mu? Kaydol</a></p>
+
                         </center>
                     </div>
                 </div>
@@ -71,5 +80,7 @@
     <script src="~/writer-login/js/popper.min.js"></script>
     <script src="~/writer-login/js/bootstrap.min.js"></script>
     <script src="~/writer-login/js/main.js"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
 </body>
 </html>

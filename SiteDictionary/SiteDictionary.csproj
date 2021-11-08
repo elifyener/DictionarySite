@@ -166,6 +166,9 @@
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin-login\index.html" />
+    <Content Include="admin-login\particles.js" />
+    <Content Include="admin-login\style.css" />
     <Content Include="AdminLTE-3.0.4\.gitignore" />
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
     <Content Include="AdminLTE-3.0.4\build\config\rollup.config.js" />
@@ -2463,6 +2466,7 @@
     <Content Include="writer-login\js\main.js" />
     <Content Include="writer-login\js\owl.carousel.min.js" />
     <Content Include="writer-login\js\popper.min.js" />
+    <Content Include="admin-login\particles.json" />
     <Content Include="writer-register\css\bootstrap.min.css" />
     <Content Include="writer-register\css\bootstrap\bootstrap.css" />
     <Content Include="writer-register\css\owl.carousel.min.css" />
@@ -2656,6 +2660,7 @@
     <Content Include="writer-login\scss\bootstrap\_variables.scss" />
     <Content Include="writer-login\scss\style.scss" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Login\WriterLogin.cshtml" />
     <Content Include="writer-register\css\.DS_Store" />
     <Content Include="writer-register\css\bootstrap.min.css.map" />
     <Content Include="writer-register\fonts\.DS_Store" />
@@ -2755,7 +2760,6 @@
     <Content Include="writer-register\scss\bootstrap\_utilities.scss" />
     <Content Include="writer-register\scss\bootstrap\_variables.scss" />
     <Content Include="writer-register\scss\style.scss" />
-    <Content Include="Views\Login\WriterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
