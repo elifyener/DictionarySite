@@ -5,19 +5,44 @@
 }
 
 <br />
-@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.CategoryName)
-        <br /> <br />
-        @Html.Label("Açıklamayı Yazınız")
-        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.CategoryDescription)
-        <br /> <br />
-        <button class="btn btn-info">Kaydet</button>
+
+<div class="form-group">
+        
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title">Kategori Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Kategori Adı</label>
+                            @Html.TextBoxFor(x => x.CategoryName, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @Html.TextAreaFor(x => x.CategoryDescription, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-info">Kaydet</button>
+                <a href="/AdminCategory/Index/" class="btn btn-outline-info">İptal</a>
+            }
+        </div>
+        <!-- /.card-body -->
     </div>
-}
+</div>
+
 
 

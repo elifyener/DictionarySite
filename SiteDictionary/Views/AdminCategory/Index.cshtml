@@ -6,24 +6,41 @@
 }
 
 <br />
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Kategori Adı</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Başlıklar</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-    <tr>
-        <th>@item.CategoryID</th>
-        <td>@item.CategoryName</td>
-        <td><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
-        <td><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
-        <td><a href="#" class="btn btn-info">Başlıklar</a></td>
-    </tr>
-    }
-</table>
-<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>
+<div class="card card-dark">
+    <div class="card-header">
+        <h3 class="card-title">Kategoriler</h3>
+    </div>
+    <div class="card-body p-0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Kategori Adı</th>
+                    <th>Kategori Açıklaması</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+           @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryID</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.CategoryDescription.Substring(0, item.CategoryDescription.Substring(0, 100).LastIndexOf(" ")).. </td>
+                    <td class="text-right py-0 align-middle">
+                        <div class="btn-group btn-group-sm">
+                            <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                            <a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-success"><i class="fas fa-pen"></i></a>
+                            <a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<a href="/AdminCategory/AddCategory" class="btn btn-dark">Kategori Ekle</a>
+
 

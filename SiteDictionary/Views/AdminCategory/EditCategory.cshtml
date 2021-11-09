@@ -1,24 +1,42 @@
 ﻿@model EntityLayer.Concrete.Category
-@{
-    ViewBag.Title = "EditCategory";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+@{ ViewBag.Title = "EditCategory";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 
 <br />
-<h2>EditCategory</h2>
-@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
-{
-<div class="form-group">
-    @Html.Label("Kategori ID")
-    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
-    <br />
-    @Html.Label("Kategori Adı")
-    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-    <br />
-    @Html.Label("Kategori Açıklaması")
-    @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
-    <br />
-    <button class="btn btn-success">Güncelle</button>
+
+<div class="card card-success">
+    <div class="card-header">
+        <h3 class="card-title">Kategori Düzenle</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        @using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+        {
+                
+                @Html.HiddenFor(x => x.CategoryID, new { placeholder = "Giriniz...", @class = "form-control" })
+                        
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Kategori Adı</label>
+                            @Html.TextBoxFor(x => x.CategoryName, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @Html.TextAreaFor(x => x.CategoryDescription, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success">Güncelle</button>}
+    </div>
+    <!-- /.card-body -->
 </div>
-}
 
