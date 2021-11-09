@@ -11,31 +11,33 @@
     <!-- /.card-header -->
     <div class="card-body">
         @using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
-        {
-                
-                @Html.HiddenFor(x => x.CategoryID, new { placeholder = "Giriniz...", @class = "form-control" })
-                        
-                <div class="row">
-                    <div class="col-sm-12">
-                        <!-- text input -->
-                        <div class="form-group">
-                            <label>Kategori Adı</label>
-                            @Html.TextBoxFor(x => x.CategoryName, new { placeholder = "Giriniz...", @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
-                        </div>
+         {
+
+            @Html.HiddenFor(x => x.CategoryID, new { placeholder = "Giriniz...", @class = "form-control" })
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Kategori Adı</label>
+                        @Html.TextBoxFor(x => x.CategoryName, new { placeholder = "Giriniz...", @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <!-- textarea -->
-                        <div class="form-group">
-                            <label>Açıklama</label>
-                            @Html.TextAreaFor(x => x.CategoryDescription, new { placeholder = "Giriniz...", @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
-                        </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        @Html.TextAreaFor(x => x.CategoryDescription, new { placeholder = "Giriniz...", @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <button class="btn btn-success">Güncelle</button>}
+            </div>
+            <button class="btn btn-success">Güncelle</button>
+            <a href="/AdminCategory/Index/" class="btn btn-outline-success">İptal</a>
+         }
     </div>
     <!-- /.card-body -->
 </div>

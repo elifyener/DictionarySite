@@ -56,6 +56,7 @@ namespace SiteDictionary.Controllers
         [HttpGet]
         public ActionResult EditCategory(int id)
         {
+
             var categoryvalue = cm.GetByID(id);
             return View(categoryvalue);
         }
@@ -63,8 +64,19 @@ namespace SiteDictionary.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category p)
         {
-            cm.CategoryUpdate(p);
-            return RedirectToAction("Index");
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult results = categoryValidator.Validate(p);
+            if (results.IsValid)
+            {
+                cm.CategoryUpdate(p);
+                return RedirectToAction("Index");
+            }
+            foreach (var item in results.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+            
         }
     }
 }

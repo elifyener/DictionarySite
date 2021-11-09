@@ -26,7 +26,13 @@
                 <tr>
                     <td>@item.CategoryID</td>
                     <td>@item.CategoryName</td>
+                    @if(@item.CategoryDescription!=null){
                     <td>@item.CategoryDescription.Substring(0, item.CategoryDescription.Substring(0, 100).LastIndexOf(" ")).. </td>
+                    }
+                    else
+                    {
+                        <td>"Kategori açıklaması yapılmamış."</td>
+                    }
                     <td class="text-right py-0 align-middle">
                         <div class="btn-group btn-group-sm">
                             <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>

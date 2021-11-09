@@ -65,7 +65,15 @@ namespace SiteDictionary.Controllers
                                                       Text = x.CategoryName,
                                                       Value = x.CategoryID.ToString()
                                                   }).ToList();
+
+            List<SelectListItem> valuewriter = (from x in wm.GetList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.WriterName + " " + x.WriterSurname,
+                                                    Value = x.WriterID.ToString()
+                                                }).ToList();
             ViewBag.vlc = valuecategory;
+            ViewBag.vlw = valuewriter;
 
             var HeadingValue = hm.GetByID(id);
             return View(HeadingValue);
