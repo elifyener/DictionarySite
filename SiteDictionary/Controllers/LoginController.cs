@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -65,8 +66,11 @@ namespace SiteDictionary.Controllers
         {
             //Context c = new Context();
             //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
-            WriterLoginValidator wv = new WriterLoginValidator();
-            ValidationResult results = wv.Validate(p);
+            WriterValidator wv = new WriterValidator();
+            ValidationResult results = wv.Validate(p, options =>
+            {
+                options.IncludeRuleSets("Mail", "PasswordLogin");
+            });
             if (results.IsValid)
             {
                 var writeruserinfo = wlm.GetWriter(p.WriterMail, p.WriterPassword);

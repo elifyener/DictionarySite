@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,11 @@ namespace SiteDictionary.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer p)
         {
-            ValidationResult results = writervalidator.Validate(p);
+            ValidationResult results = writervalidator.Validate(p, options =>
+            {
+                options.IncludeRuleSets("Names", "About", "Mail");
+            });
+
             if (results.IsValid)
             {
                 wm.WriterAdd(p);

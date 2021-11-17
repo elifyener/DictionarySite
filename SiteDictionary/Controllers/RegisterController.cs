@@ -2,6 +2,7 @@
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,10 @@ namespace SiteDictionary.Controllers
         public ActionResult Index(Writer p)
         {
             WriterValidator wv = new WriterValidator();
-            ValidationResult results = wv.Validate(p);
+            ValidationResult results = wv.Validate(p, options =>
+            {
+                options.IncludeRuleSets("Names", "Passwords", "Mail");
+            });
             if (results.IsValid)
             {
                 p.WriterStatus = true;

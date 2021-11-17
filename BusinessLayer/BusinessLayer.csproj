@@ -80,7 +80,6 @@
     <Compile Include="ValidationRules\ContactValidator.cs" />
     <Compile Include="ValidationRules\HeadingValidator.cs" />
     <Compile Include="ValidationRules\MessageValidator.cs" />
-    <Compile Include="ValidationRules\WriterLoginValidator.cs" />
     <Compile Include="ValidationRules\WriterValidator.cs" />
   </ItemGroup>
   <ItemGroup>

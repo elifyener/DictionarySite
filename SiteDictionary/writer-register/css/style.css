@@ -150,3 +150,12 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+
+.err {
+    position: absolute;
+    margin-left: 10%;
+    left: 0px;
+    margin-top: -0.5%;
+    color: #e63946;
+    font-size: 13px;
+}

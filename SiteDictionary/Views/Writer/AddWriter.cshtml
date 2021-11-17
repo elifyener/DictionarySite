@@ -1,41 +1,83 @@
 ﻿@model  EntityLayer.Concrete.Writer
-@{
-    ViewBag.Title = "AddWriter";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+@{ ViewBag.Title = "AddWriter";
+   Layout = "~/Views/Shared/_AdminLayout.cshtml"; 
 }
 
-<h1>Yeni Yazar Ekleme</h1>
-@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.Label("Yazar Adı")
-        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterName)
+<br>
+<div class="form-group">
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title">Yazar Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>Yazar Adı</label>
+                            @Html.TextBoxFor(x => x.WriterName, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Yazar Soyadı</label>
+                            @Html.TextBoxFor(x => x.WriterSurname, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterSurname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Yazar Maili</label>
+                            @Html.TextBoxFor(x => x.WriterMail, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Yazar Görseli</label>
+                            @Html.TextBoxFor(x => x.WriterImage, new { placeholder = "Giriniz...", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Yazar Ünvanı</label>
+                            @Html.TextBoxFor(x => x.WriterTitle, new { placeholder = "Giriniz...", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- textarea -->
+                        <div class="form-group">
+                            <label>Yazar Hakkında</label>
+                            @Html.TextAreaFor(x => x.WriterAbout, new { placeholder = "Giriniz...", @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-info">Kaydet</button>
+                <a href="/Writer/Index/" class="btn btn-outline-info">İptal</a>
+             }   
+        </div>
         <br />
-        @Html.Label("Yazar Soyadı")
-        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterSurname)
-        <br />
-        @Html.Label("Yazar Mail")
-        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterMail)
-        <br />
-        @Html.Label("Yazar Şifresi")
-        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterPassword)
-        <br />
-        @Html.Label("Yazar Görsel Linki")
-        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterImage)
-        <br />
-        @Html.Label("Yazar Unvan")
-        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterTitle)
-        <br />
-        @Html.Label("Yazar Hakkında")
-        @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterAbout)
-        <br />
-        <button class="btn btn-info">Yazar Ekle</button>
     </div>
-}
+        <!-- /.card-body -->
+    <br />
+</div>
+
