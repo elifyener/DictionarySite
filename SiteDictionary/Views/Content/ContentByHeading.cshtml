@@ -20,18 +20,17 @@
                         <div class="timeline">
                             @foreach (var item in Model)
                             {
-                                <!-- timeline time label -->
-                                <div class="time-label">
-                                    <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyy"))</span>
-                                </div>
-                                <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
-                                    <i class="fas fa-comment bg-yellow"></i>
                                     <div class="timeline-item">
-                                        <h3 class="timeline-header"><a href="#">@item.Writer.WriterName @item.Writer.WriterSurname</a></h3>
+                                        
                                         <div class="timeline-body">
+
                                             @item.ContentValue
+                                            <br />
+                                            
+                                            <small><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fab fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-chevron-up"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-chevron-down"></i></small>
+                                            <small class="float-right">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyy")) | <a href="#">@item.Writer.WriterName @item.Writer.WriterSurname</a></small>
                                         </div>
                                     </div>
                                 </div>
