@@ -4,49 +4,70 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="card ">
+        <div class="card-header">
+            <h3 class="card-title">Kategoriler</h3>
+            <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Kategori ara..">
 
-<br />
-<div class="card card-dark">
-    <div class="card-header">
-        <h3 class="card-title">Kategoriler</h3>
-    </div>
-    <div class="card-body p-0">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Kategori Adı</th>
-                    <th>Kategori Açıklaması</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-           @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.CategoryID</td>
-                    <td>@item.CategoryName</td>
-                    @if(@item.CategoryDescription!=null){
-                    <td>@item.CategoryDescription.Substring(0, item.CategoryDescription.Substring(0, 100).LastIndexOf(" ")).. </td>
-                    }
-                    else
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori Adı</th>
+                        <th>Kategori Açıklaması</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <td>"Kategori açıklaması yapılmamış."</td>
+                        <tr>
+                            <td>@item.CategoryID</td>
+                            <td>@item.CategoryName</td>
+                            @if (@item.CategoryDescription != null)
+                            {
+                                <td>@item.CategoryDescription.Substring(0, item.CategoryDescription.Substring(0, 100).LastIndexOf(" ")).. </td>
+                            }
+                            else
+                            {
+                                <td>"Kategori açıklaması yapılmamış."</td>
+                            }
+                            <td class="text-right py-0 align-middle">
+                                <div class="btn-group btn-group-sm">
+                                    <a href="#" class="btn btn-dark" style="border-color: #61a5c2; background-color: #61a5c2;"><i class="fas fa-eye"></i></a>
+                                    <a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-success"><i class="fas fa-pen"></i></a>
+                                    <a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
                     }
-                    <td class="text-right py-0 align-middle">
-                        <div class="btn-group btn-group-sm">
-                            <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                            <a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-success"><i class="fas fa-pen"></i></a>
-                            <a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
     </div>
-    <!-- /.card-body -->
-</div>
-<a href="/AdminCategory/AddCategory" class="btn btn-dark">Kategori Ekle</a>
-
+    <a href="/AdminCategory/AddCategory" class="btn btn-dark" style="background-color: #1d3557; color: #f1faee " ">Kategori Ekle</a>
+</body>
+</html>
 

@@ -6,7 +6,7 @@
 
 <br>
 <div class="form-group">
-    <div class="card card-info">
+    <div class="card card-dark">
         <div class="card-header">
             <h3 class="card-title">Yazar Düzenle</h3>
         </div>
@@ -16,7 +16,7 @@
             {
                 @Html.HiddenFor(x => x.WriterID)
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- text input -->
                         <div class="form-group">
                             <label>Yazar Adı</label>
@@ -24,9 +24,7 @@
                             @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Yazar Soyadı</label>
@@ -35,8 +33,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Yazar Maili</label>
@@ -44,9 +43,7 @@
                             @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Yazar Görseli</label>
@@ -54,17 +51,16 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Yazar Ünvanı</label>
                             @Html.TextBoxFor(x => x.WriterTitle, new { placeholder = "Giriniz...", @class = "form-control" })
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>Yazar Hakkında</label>
@@ -73,8 +69,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-info">Değişiklikleri Kaydet</button>
-                <a href="/Writer/Index/" class="btn btn-outline-info">İptal</a>
+              
+                <button class="btn" style="background-color: #457b9d; color: #f1faee">Değişiklikleri Kaydet</button>
+                <a href="/Writer/Index/" class="btn" style="background-color: #e63946; color: #f1faee ">İptal</a>
              }   
         </div>
         <br />

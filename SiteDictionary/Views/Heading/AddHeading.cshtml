@@ -8,7 +8,7 @@
     <br />
     <section class="content">
         <div class="container-fluid">
-            <div class="card card-info">
+            <div class="card card-dark">
                 <div class="card-header">
                     <h3 class="card-title">Yeni Başlık Ekle</h3>
 
@@ -30,8 +30,8 @@
                                     <label>Yazar</label>
                                     @Html.DropDownListFor(x => x.WriterID, (List<SelectListItem>)ViewBag.vlw, new { style = "width: 800px;", @class = "form-control select2" })
                                 </div>
-                                <button class="btn btn-info">Başlığı Oluştur</button>
-                                <a href="/Heading/Index/" class="btn btn-outline-info">İptal</a>
+                                <button class="btn" style="background-color: #457b9d; color: #f1faee">Başlığı Oluştur</button>
+                                <a href="/Heading/Index/" class="btn" style="background-color: #e63946; color: #f1faee">İptal</a>
                              }
                         </div>
                     </div>

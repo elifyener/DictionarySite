@@ -204,6 +204,7 @@
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="AdminLTE-3.0.4\dist\img\seagull.png" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.min.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\demo.js" />
@@ -2613,7 +2614,6 @@
     <Content Include="writer-register\scss\style.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AdminLTE-3.0.4\dist\img\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
