@@ -19,9 +19,9 @@ namespace SiteDictionary.Controllers
         WriterValidator writervalidator = new WriterValidator();
 
         // GET: Writer
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var WriterValues = wm.GetList();
+            var WriterValues = wm.GetListBySearch(p);
             return View(WriterValues);
         }
 

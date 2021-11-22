@@ -43,5 +43,18 @@ namespace BusinessLayer.Concrete
         {
             return _categoryDal.List();
         }
+        public List<Category> GetListBySearch(string p)
+        {
+
+            if (string.IsNullOrEmpty(p))
+            {
+                return _categoryDal.List();
+            }
+            else
+            {
+                return _categoryDal.List(x => x.CategoryName.Contains(p));
+            }
+        }
+        
     }
 }

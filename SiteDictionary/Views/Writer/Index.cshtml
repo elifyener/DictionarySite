@@ -14,13 +14,16 @@
                     <h3 class="card-title">Yazarlar</h3>
 
                     <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Yazar ara..">
+                        @using (Html.BeginForm("Index", "Writer", FormMethod.Post))
+                        {
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                @Html.TextBox("p", "", new { @class = "form-control float-right", placeholder = "Kategori ara.." })
 
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
                 <!-- Main content -->
@@ -50,7 +53,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right">
-                                            <a href="#" class="btn btn-sm " style="background-color: #457b9d; color: #f1faee">
+                                            <a href="/Heading/HeadingByWriter/@item.WriterID" class="btn btn-sm " style="background-color: #457b9d; color: #f1faee">
                                                 <i class="fas fa-comments">Yazar Başlıkları</i>
                                             </a>
                                             <a href="/Writer/EditWriter/@item.WriterID" class="btn btn-sm" style="background-color: #e63946; color: #f1faee">

@@ -15,12 +15,21 @@ namespace SiteDictionary.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         // GET: Heading
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var headingvalues = hm.GetList();
+            var headingvalues = hm.GetListSearch(p);
             return View(headingvalues);
         }
-
+        public ActionResult HeadingByWriter(string p, int id)
+        {
+            var headingvalues = hm.GetListByWriterSearch(p, id);
+            return View(headingvalues);
+        }
+        public ActionResult HeadingByCategory(string p, int id)
+        {
+            var headingvalues = hm.GetListByCategorySearch(p, id);
+            return View(headingvalues);
+        }
         public ActionResult HeadingReport()
         {
             var headingvalues = hm.GetList();

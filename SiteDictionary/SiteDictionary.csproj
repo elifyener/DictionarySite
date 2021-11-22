@@ -2614,6 +2614,8 @@
     <Content Include="writer-register\scss\bootstrap\_variables.scss" />
     <Content Include="writer-register\scss\style.scss" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Heading\HeadingByWriter.cshtml" />
+    <Content Include="Views\Heading\HeadingByCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

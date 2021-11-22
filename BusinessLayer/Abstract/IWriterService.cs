@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IWriterService
     {
         List<Writer> GetList();
+        List<Writer> GetListBySearch(string p);
         void WriterAdd(Writer writer);
         void WriterDelete(Writer writer);
         void WriterUpdate(Writer writer);

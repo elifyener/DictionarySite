@@ -42,5 +42,18 @@ namespace BusinessLayer.Concrete
         {
             _writerDal.Update(writer);
         }
+
+        public List<Writer> GetListBySearch(string p)
+        {
+
+            if (string.IsNullOrEmpty(p))
+            {
+                return _writerDal.List();
+            }
+            else
+            {
+                return _writerDal.List(x => x.WriterName.Contains(p) || x.WriterSurname.Contains(p));
+            }
+        }
     }
 }

@@ -16,9 +16,9 @@ namespace SiteDictionary.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var categoryvalues = cm.GetList();
+            var categoryvalues = cm.GetListBySearch(p);
             return View(categoryvalues);
         }
 
